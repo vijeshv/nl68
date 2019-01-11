@@ -1,0 +1,13 @@
+# Project description file
+
+project.name=nl68
+project.version=6.5
+project.original.version=6.5
+product.name=NeoLoad
+product.original.name=NeoLoad
+product.original.version=6.8.0
+project.id=b688a24b-1812-4bbe-a793-894bc6182aba
+project.config.path=config.zip
+project.config.storage=ZIP
+team.server.enabled=true
+team.server.project=/vijeshv/nl68
