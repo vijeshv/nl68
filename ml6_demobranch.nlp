@@ -1,0 +1,13 @@
+# Project description file
+
+project.name=ml6_demobranch
+project.version=6.5
+project.original.version=6.5
+product.name=NeoLoad
+product.original.name=NeoLoad
+product.original.version=6.8.0
+project.id=73f98f64-4424-4897-95c6-dd7a57d7b687
+project.config.path=config.zip
+project.config.storage=ZIP
+team.server.enabled=true
+team.server.project=/vijeshv/nl68
