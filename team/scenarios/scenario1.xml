@@ -1,13 +1,87 @@
 <scenario postMonitoringTime="-1" preMonitoringTime="-1"
     slaProfileEnabled="false" uid="scenario1" virtualUsersStates="true">
+    <!--****** POPULATION POLICY ******-->
+    <population-policy name="pop">
+        <duration-policy-entry iterations="1" time="120" timeUnit="0" type="1"/>
+        <volume-policy-entry>
+            <constant-volume-policy iterationNumber="1" userNumber="5"/>
+        </volume-policy-entry>
+        <start-stop-policy-entry start-delay="0" start-type="0"
+            stop-delay="60000" stop-type="0"/>
+        <runtime-policy continueOnError="true" thinktimePolicy="0"
+            thinktimeValue="5000" vuStartDelay="0" vuStartMode="0"/>
+        <!--****** POPULATION LG HOSTS ******-->
+        <lg-hosts>
+            <lg-host-entry>$zoneID=Asia-Pacific Australia (Melbourne 1);$lgID=168.1.66.86:443</lg-host-entry>
+            <lg-host-entry>$zoneID=Asia-Pacific Australia (Melbourne 2);$lgID=40.127.68.96:443</lg-host-entry>
+            <lg-host-entry>$zoneID=Asia-Pacific Australia (Sydney 1);$lgID=13.239.56.127:443</lg-host-entry>
+            <lg-host-entry>$zoneID=Asia-Pacific Australia (Sydney 2);$lgID=119.9.54.202:443</lg-host-entry>
+            <lg-host-entry>$zoneID=Asia-Pacific Australia (Sydney 4);$lgID=35.201.27.117:443</lg-host-entry>
+        </lg-hosts>
+    </population-policy>
+    <dashboards defaultDashboardUid="Graph board"/>
     <!--****** DASHBOARDS  ******-->
+    <charts-model-description name="Graph board">
+        <chart-description autoRange="true"
+            chart-description-type="chart-description-type"
+            domainMarkerVisible="true" granularityLevel="0"
+            historyState="XMIN" includeInReport="false"
+            rangeMarkerVisible="true" title="User Load and Error Rate" typeName="CLASSIC">
+            <monitor-curve-description color="20,106,203"
+                connectionName="NeoLoad" dashed="false"
+                monitorName="UserLoad" monitoredHostName="NeoLoad"
+                scale="1.0" selected="false"/>
+            <action-curve-description
+                actionUid="2ee035d5-0178-378f-8d0a-63218f082d2f"
+                color="200,0,0" dashed="false" populationName=""
+                scale="1.0" selected="false"
+                statisticName="result.errors" zoneName=""/>
+        </chart-description>
+        <chart-description autoRange="true"
+            chart-description-type="chart-description-type"
+            domainMarkerVisible="true" granularityLevel="0"
+            historyState="XMIN" includeInReport="false"
+            rangeMarkerVisible="true" title="Overall Throughput" typeName="CLASSIC">
+            <monitor-curve-description color="42,89,26"
+                connectionName="NeoLoad" dashed="false"
+                monitorName="throughput" monitoredHostName="NeoLoad"
+                scale="1.0" selected="false"/>
+        </chart-description>
+        <chart-description autoRange="true"
+            chart-description-type="chart-description-type"
+            domainMarkerVisible="true" granularityLevel="0"
+            historyState="XMIN" includeInReport="false"
+            rangeMarkerVisible="true" title="Load Generators CPU usage" typeName="CLASSIC">
+            <monitor-curve-description color="0,255,0"
+                connectionName="NeoLoad" dashed="false"
+                monitorName="lgcpu.13.239.56.127:443"
+                monitoredHostName="LG 13.239.56.127:443" scale="1.0" selected="false"/>
+            <monitor-curve-description color="20,106,203"
+                connectionName="NeoLoad" dashed="false"
+                monitorName="lgcpu.119.9.54.202:443"
+                monitoredHostName="LG 119.9.54.202:443" scale="1.0" selected="false"/>
+            <monitor-curve-description color="88,183,55"
+                connectionName="NeoLoad" dashed="false"
+                monitorName="lgcpu.168.1.66.86:443"
+                monitoredHostName="LG 168.1.66.86:443" scale="1.0" selected="false"/>
+            <monitor-curve-description color="200,0,0"
+                connectionName="NeoLoad" dashed="false"
+                monitorName="lgcpu.40.127.68.96:443"
+                monitoredHostName="LG 40.127.68.96:443" scale="1.0" selected="false"/>
+            <monitor-curve-description color="191,0,189"
+                connectionName="NeoLoad" dashed="false"
+                monitorName="lgcpu.35.201.27.117:443"
+                monitoredHostName="LG 35.201.27.117:443" scale="1.0" selected="false"/>
+        </chart-description>
+        <empty-chart-description/>
+    </charts-model-description>
     <!--****** END DASHBOARDS  ******-->
     <!--****** START DATA FILTERS  ******-->
     <!--****** END DATA FILTERS  ******-->
     <!--****** START RENDEZ-VOUS POLICIES  ******-->
     <!--****** END RENDEZ-VOUS POLICIES  ******-->
     <!--****** START DEBUG POLICY ******-->
-    <debug-policy mode="0"/>
+    <debug-policy mode="1"/>
     <!--****** END DEBUG POLICY ******-->
     <!--****** START VU STATES ******-->
     <!--****** END VU STATES ******-->
